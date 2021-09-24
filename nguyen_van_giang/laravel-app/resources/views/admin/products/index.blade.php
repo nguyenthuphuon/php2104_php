@@ -54,6 +54,12 @@
                   </div>
 
                   <div class="col-md-4">
+                    <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-info btn-xs">
+                      Edit
+                    </a>
+                  </div>
+
+                  <div class="col-md-4">
 
                     <button type="button"
                       class="btn btn-danger btn-xs confirm-delete"
