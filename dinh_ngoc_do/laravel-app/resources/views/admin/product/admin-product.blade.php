@@ -50,16 +50,20 @@
             <td>10</td>
             <td>${{ $product->price }}</td>
             <td><span class="badge bg-primary">{{ $product->category->name }}</span></td>
-            <td>Open</td>
+            <td>Public</td>
             <td>
               <div class="btn-group btn-group-sm">
-                <a href="#" class="btn btn-success" ><i class="fas fa-eye"></i></a>
+                <a href="{{ route('product.info', ['id' => $product->id]) }}" class="btn btn-success" target="_blank">
+                  <i class="fas fa-eye"></i>
+                </a>
                 <a href="#" class="btn btn-info"><i class="fas fa-pen"></i></a>
-                <form action="{{ route('admin.products.destroy', ['product' => $product->id]) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                </form>
+                <button type="button" 
+                  class="btn btn-danger confirm-delete" 
+                  data-toggle="modal" 
+                  data-target="#modal-danger"
+                  data-url="{{ route('admin.products.destroy', ['product' => $product->id]) }}">
+                  <i class="fas fa-trash"></i>
+                </button>
               </div>
               </td>
             <!-- <td>
@@ -73,8 +77,10 @@
     </table>
   </div>
   <!-- /.card-body -->
-  {{ $products->links('admin.admin-paginate') }}
+  {{ $products->links('admin.partials.admin-paginate') }}
 </div>
+
+@include('admin.partials.admin-form-delete')
 
 @section('script-close-alert')
 <script type="text/javascript">

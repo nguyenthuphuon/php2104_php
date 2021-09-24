@@ -18,7 +18,7 @@ class Admin
     {
         $currentUser = auth()->user();
 
-        if ($currentUser->name == 'canhkhang836' || $currentUser->email == 'canhkhang836@gmail.com') {
+        if ($currentUser->role == 'admin') {
             return $next($request);
         } else {
             return route('shopper.home');
