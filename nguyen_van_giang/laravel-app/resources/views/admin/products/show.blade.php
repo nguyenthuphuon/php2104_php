@@ -17,14 +17,7 @@
         <div class="col-12 col-sm-6">
           <h3 class="d-inline-block d-sm-none">{{ $product->name }}</h3>
           <div class="col-12">
-            <img src="/themes/adminlte/dist/img/prod-1.jpg" class="product-image" alt="Product Image">
-          </div>
-          <div class="col-12 product-image-thumbs">
-            <div class="product-image-thumb active"><img src="/themes/adminlte/dist/img/prod-1.jpg" alt="Product Image"></div>
-            <div class="product-image-thumb" ><img src="/themes/adminlte/dist/img/prod-2.jpg" alt="Product Image"></div>
-            <div class="product-image-thumb" ><img src="/themes/adminlte/dist/img/prod-3.jpg" alt="Product Image"></div>
-            <div class="product-image-thumb" ><img src="/themes/adminlte/dist/img/prod-4.jpg" alt="Product Image"></div>
-            <div class="product-image-thumb" ><img src="/themes/adminlte/dist/img/prod-5.jpg" alt="Product Image"></div>
+            <img src="{{ asset('storage/products/' . $product->image) }}" class="product-image" alt="{{ $product->name }}">
           </div>
         </div>
         <div class="col-12 col-sm-6">
