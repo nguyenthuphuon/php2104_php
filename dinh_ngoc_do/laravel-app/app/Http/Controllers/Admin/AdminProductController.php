@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class AdminProductController extends Controller
 {
@@ -13,6 +14,7 @@ class AdminProductController extends Controller
     public function __construct(Product $product)
     {
         $this->modelProduct = $product;
+        /* $this->categoryModel = $category; */
     }
 
     public function index()
@@ -20,7 +22,7 @@ class AdminProductController extends Controller
         $products = $this->modelProduct
             ->paginate(10);
 
-        return view('admin.admin-product', [
+        return view('admin.product.admin-product', [
             'products' => $products
         ]);
     }
@@ -32,7 +34,7 @@ class AdminProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.admin-add-product');
     }
 
     /**
