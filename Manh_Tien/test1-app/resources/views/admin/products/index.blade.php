@@ -57,10 +57,12 @@
               </td>
               <td>
                   <i class="fas fa-eye"></i>
-                  <i class="fas fa-edit"></i>
+                  <a href="{{ route('adminproducts.edit', ['product' => $product->id]) }}" class="btn btn-info btn-xs">
+                    <i class="fas fa-edit"></i>
+                  </a>
                   <button type="button" class="btn btn-danger btn-xs confirm-delete" 
-                  data-toggle="modal" data-target="#modal-delete" 
-                  data-url="{{ route('adminproducts.destroy', ['product' => $product->id]) }}">
+                    data-toggle="modal" data-target="#modal-delete" 
+                    data-url="{{ route('adminproducts.destroy', ['product' => $product->id]) }}">
                     <i class="fas fa-trash-alt"></i>
                   </button>
               </td>
