@@ -81,7 +81,7 @@ Route::get('/products', [ProductController::class, 'Product'])->name('products.p
 
 Route::get('/productsdetail/{id}', [ProductDetailController::class, 'ProductDetail'])->name('products.product-detail');
 
-Route::get('/categories/{id}', [CategoryController::class, 'category'])->name('category.show');
+Route::get('/categories/{id}', [CategoryController::class, 'categories'])->name('category.show');
 
 Route::get('/child-page', function() {
     return view('my-directory.child-page');
