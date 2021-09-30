@@ -742,6 +742,17 @@
 												<div class="add-product">
 														<a href="product-edit.html">Add Product</a>
 												</div>
+												@if (session('msg'))
+													<div class="alert alert-success">
+															{{ session('msg') }}
+													</div>
+												@endif
+
+												@if (session('error'))
+												<div class="alert alert-danger">
+														{{ session('error') }}
+												</div>
+											@endif
 												<table>
 														<tr>
 															<th>id</th>
@@ -751,11 +762,13 @@
 															<th>price</th>
 															<th>image</th>
 															<th>categories_id</th>
+															<th></th>
 															<th>Setting</th>
 														</tr>
 													@foreach ($products as $product)
 														<tr>
-															<td>{{ $loop->index + 1 }}.</td>
+															{{-- currentPage(): số trang hiện tại; perPage():số lượng mục trên 1 trang --}}
+															<td>{{ ($loop->index + 1) + ($products->currentPage() - 1) * $products->perPage() }}.</td>
 															<td>
 																<a href="{{ route('adminproducts.show', ['product' => $product->id]) }}">{{ $product->name }}</a>
 															</td>
@@ -768,8 +781,12 @@
 																<a href="{{ route('products.product-detail', ['id' => $product->id]) }}" target="_blank">demo</a>
 															</td>
 															<td>
+																<form method="POST" action="{{ route('adminproducts.destroy', ['product' => $product->id]) }}">
+																		@csrf
+																		@method('DELETE')
 																	<button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-																	<button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+																	<button data-toggle="tooltip" title="Delete" class="pd-setting-ed" name="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+																</form>
 															</td>
 														</tr>
 													@endforeach

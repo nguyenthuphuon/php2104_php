@@ -98,7 +98,7 @@
 											</a>
 											<ul class="submenu-angle" aria-expanded="true">
 													<li><a title="Product List" href="{{ route('adminproducts.index') }}"><span class="mini-sub-pro">Product List</span></a></li>
-													<li><a title="Product Edit" href="/themes/nalika/product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
+													<li><a title="Product Edit" href="{{ route('adminproducts.create') }}"><span class="mini-sub-pro">Product Edit</span></a></li>
 													<li><a title="Product Cart" href="/themes/nalika/product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
 													<li><a title="Product Payment" href="/themes/nalika/product-payment.html"><span class="mini-sub-pro">Product Payment</span></a></li>
 													<li><a title="Analytics" href="/themes/nalika/analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
@@ -248,6 +248,9 @@
     <!-- main JS
 		============================================ -->
     <script src="/themes/nalika/js/main.js"></script>
+
+	@yield('script')
+	
 </body>
 
 </html>

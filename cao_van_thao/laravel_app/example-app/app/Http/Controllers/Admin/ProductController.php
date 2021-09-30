@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->modelProduct
-            ->paginate(config('product.paginate'));
+            ->paginate(config('product.paginate_admin'));
 
         return view('admin.products.index', [
             'products' => $products,
@@ -95,6 +95,20 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $product = $this->modelProduct->findOrFail($id);
+        try {
+            $product->delete();
+            $msg = 'xóa thành công.';
+
+            return redirect()
+                ->route('adminproducts.index')
+                ->with('msg', $msg);
+        } catch (\Exception $e) {
+            \Log::error("$e");
+        }
+        $error = 'đã có lỗi.';
+        return redirect()
+            ->route('adminproducts.index')
+            ->with('error', $error);
     }
 }
