@@ -1,6 +1,6 @@
 <!-- /.card-header -->
 <div class="card-body">
-  <form action="{{ $action }}" method="POST">
+  <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     @if ($method == 'PUT')
@@ -40,6 +40,25 @@
         <div class="form-group">
           <label>Description</label>
           <textarea name="description" class="form-control" rows="3">{{ @$product->description }}</textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="image">Image</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="image" name="image">
+              <label class="custom-file-label" for="image">
+                @if (isset($product))
+                  {{ $product->image }}
+                @else
+                  Choose file
+                @endif
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -89,3 +108,14 @@
   </form>
 </div>
 <!-- /.card-body -->
+
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#image').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
+    });
+  </script>
+@endsection

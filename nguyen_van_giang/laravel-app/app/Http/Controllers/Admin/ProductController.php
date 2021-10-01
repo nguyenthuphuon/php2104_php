@@ -73,6 +73,13 @@ class ProductController extends Controller
         $data['user_id'] = auth()->id();
 
         try {
+            $file = $request->file('image');
+
+            if ($file) {
+                $file->store('public/products');
+                $data['image'] = $file->hashName();
+            }
+
             $product = $this->modelProduct->create($data);
             $msg = 'Create product success.';
 
@@ -150,6 +157,13 @@ class ProductController extends Controller
         $data['user_id'] = auth()->id();
 
         try {
+            $file = $request->file('image');
+
+            if ($file) {
+                $file->store('public/products');
+                $data['image'] = $file->hashName();
+            }
+
             $product->update($data);
             $msg = 'Update product success.';
 
