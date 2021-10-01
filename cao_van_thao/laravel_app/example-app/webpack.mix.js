@@ -19,4 +19,6 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
 
 mix.copyDirectory('resources/themes/dailyShop', 'public/themes/dailyShop');
 
-mix.copyDirectory('resources/themes/nalika', 'public/themes/nalika');
+//mix.copyDirectory('resources/themes/simple-admin-dashboard', 'public/themes/simple-admin-dashboard');
+
+mix.copyDirectory('vendor/almasaeed2010/adminlte', 'public/themes/adminlte');

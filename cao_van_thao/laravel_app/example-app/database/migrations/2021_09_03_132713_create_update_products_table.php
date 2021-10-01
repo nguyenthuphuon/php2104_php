@@ -16,12 +16,11 @@ class CreateUpdateProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer('rate');
-            $table->float('price', 8, 2)->change();
-            $table->date('start_sale_date');
-            $table->bigInteger('category_id')->change();
-            $table->bigInteger('user_id')->change();
-            $table->integer('status')->change();
+            $table->integer('rate')->nullable();
+            $table->float('price', 8, 2)->change()->nullable();
+            $table->date('start_sale_date')->nullable();
+            $table->bigInteger('user_id')->change()->nullable();
+            $table->integer('status')->change()->nullable();
         });
     }
 
