@@ -31,7 +31,6 @@ class ProductsSeeder extends Seeder
                 'quantity' => rand(1, 10),
                 'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'description' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'category_id' => rand(0, 5),
                 'user_id' => rand(0, 5),
                 'status' => rand(1, 3),
                 'rate' => rand(100, 1000),
@@ -42,7 +41,7 @@ class ProductsSeeder extends Seeder
                 'sale_off'=>rand(0, 30),
                 'price_off'=>rand(300, 500),
                 'is_public'=>rand(1, 4),
-                'categories_id'=>rand(1, 4),
+                'categories_id'=> $categories->random()->id,
             ];
         }
        Product::insert($data);

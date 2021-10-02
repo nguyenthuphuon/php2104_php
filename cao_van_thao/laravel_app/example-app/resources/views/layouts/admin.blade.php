@@ -1,256 +1,607 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard V.1 | Nalika - Material Admin Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="/themes/nalika/img/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/font-awesome.min.css">
-	<!-- nalika Icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/nalika-icon.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/owl.carousel.css">
-    <link rel="stylesheet" href="/themes/nalika/css/owl.theme.css">
-    <link rel="stylesheet" href="/themes/nalika/css/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/normalize.css">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/meanmenu.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/main.css">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/morrisjs/morris.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="/themes/nalika/css/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="/themes/nalika/css/calendar/fullcalendar.print.min.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="/themes/nalika/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="/themes/nalika/js/vendor/modernizr-2.8.3.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/themes/adminlte/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/themes/adminlte/plugins/summernote/summernote-bs4.min.css">
 </head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-<body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="/themes/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
 
-	<div class="left-sidebar-pro">
-		<nav id="sidebar" class="">
-				<div class="sidebar-header">
-						<a href="/themes/nalika/index.html"><img class="main-logo" src="/themes/nalika/img/logo/logo.png" alt="" /></a>
-						<strong><img src="/themes/nalika/img/logo/logosn.png" alt="" /></strong>
-				</div>
-				<div class="nalika-profile">
-					<div class="profile-dtl">
-						<a href="#"><img src="/themes/nalika/img/notification/4.jpg" alt="" /></a>
-						<h2>Lakian <span class="min-dtn">Das</span></h2>
-					</div>
-					<div class="profile-social-dtl">
-						<ul class="dtl-social">
-							<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
-							<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-							<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
-						</ul>
-					</div>
-				</div>
-					<div class="left-custom-menu-adp-wrap comment-scrollbar">
-						<nav class="sidebar-nav left-sidebar-menu-pro">
-								<ul class="metismenu" id="menu1">
-										<li class="active">
-											<a class="has-arrow" href="{{ route('adminproducts.index') }}">
-												<i class="icon nalika-home icon-wrap"></i>
-												<span class="mini-click-non">Ecommerce</span>
-											</a>
-											<ul class="submenu-angle" aria-expanded="true">
-													<li><a title="Product List" href="{{ route('adminproducts.index') }}"><span class="mini-sub-pro">Product List</span></a></li>
-													<li><a title="Product Edit" href="{{ route('adminproducts.create') }}"><span class="mini-sub-pro">Product Edit</span></a></li>
-													<li><a title="Product Cart" href="/themes/nalika/product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
-													<li><a title="Product Payment" href="/themes/nalika/product-payment.html"><span class="mini-sub-pro">Product Payment</span></a></li>
-													<li><a title="Analytics" href="/themes/nalika/analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-													<li><a title="Widgets" href="/themes/nalika/widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
-											</ul>
-										</li>
-											<li>
-												<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
-												<ul class="submenu-angle" aria-expanded="false">
-														<li><a title="Inbox" href="/themes/nalika/mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
-														<li><a title="View Mail" href="/themes/nalika/mailbox-view.html"><span class="mini-sub-pro">View Mail</span></a></li>
-														<li><a title="Compose Mail" href="/themes/nalika/mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a></li>
-												</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Interface</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Google Map" href="/themes/nalika/google-map.html"><span class="mini-sub-pro">Google Map</span></a></li>
-															<li><a title="Data Maps" href="/themes/nalika/data-maps.html"><span class="mini-sub-pro">Data Maps</span></a></li>
-															<li><a title="Pdf Viewer" href="/themes/nalika/pdf-viewer.html"><span class="mini-sub-pro">Pdf Viewer</span></a></li>
-															<li><a title="X-Editable" href="/themes/nalika/x-editable.html"><span class="mini-sub-pro">X-Editable</span></a></li>
-															<li><a title="Code Editor" href="/themes/nalika/code-editor.html"><span class="mini-sub-pro">Code Editor</span></a></li>
-															<li><a title="Tree View" href="/themes/nalika/tree-view.html"><span class="mini-sub-pro">Tree View</span></a></li>
-															<li><a title="Preloader" href="/themes/nalika/preloader.html"><span class="mini-sub-pro">Preloader</span></a></li>
-															<li><a title="Images Cropper" href="/themes/nalika/images-cropper.html"><span class="mini-sub-pro">Images Cropper</span></a></li>
-													</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="File Manager" href="/themes/nalika/file-manager.html"><span class="mini-sub-pro">File Manager</span></a></li>
-															<li><a title="Blog" href="/themes/nalika/blog.html"><span class="mini-sub-pro">Blog</span></a></li>
-															<li><a title="Blog Details" href="/themes/nalika/blog-details.html"><span class="mini-sub-pro">Blog Details</span></a></li>
-															<li><a title="404 Page" href="/themes/nalika/404.html"><span class="mini-sub-pro">404 Page</span></a></li>
-															<li><a title="500 Page" href="/themes/nalika/500.html"><span class="mini-sub-pro">500 Page</span></a></li>
-													</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Bar Charts" href="/themes/nalika/bar-charts.html"><span class="mini-sub-pro">Bar Charts</span></a></li>
-															<li><a title="Line Charts" href="/themes/nalika/line-charts.html"><span class="mini-sub-pro">Line Charts</span></a></li>
-															<li><a title="Area Charts" href="/themes/nalika/area-charts.html"><span class="mini-sub-pro">Area Charts</span></a></li>
-															<li><a title="Rounded Charts" href="/themes/nalika/rounded-chart.html"><span class="mini-sub-pro">Rounded Charts</span></a></li>
-															<li><a title="C3 Charts" href="/themes/nalika/c3.html"><span class="mini-sub-pro">C3 Charts</span></a></li>
-															<li><a title="Sparkline Charts" href="/themes/nalika/sparkline.html"><span class="mini-sub-pro">Sparkline Charts</span></a></li>
-															<li><a title="Peity Charts" href="/themes/nalika/peity.html"><span class="mini-sub-pro">Peity Charts</span></a></li>
-													</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Peity Charts" href="/themes/nalika/static-table.html"><span class="mini-sub-pro">Static Table</span></a></li>
-															<li><a title="Data Table" href="/themes/nalika/data-table.html"><span class="mini-sub-pro">Data Table</span></a></li>
-													</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-forms icon-wrap"></i> <span class="mini-click-non">Forms Elements</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Basic Form Elements" href="/themes/nalika/basic-form-element.html"><span class="mini-sub-pro">Bc Form Elements</span></a></li>
-															<li><a title="Advance Form Elements" href="/themes/nalika/advance-form-element.html"><span class="mini-sub-pro">Ad Form Elements</span></a></li>
-															<li><a title="Password Meter" href="/themes/nalika/password-meter.html"><span class="mini-sub-pro">Password Meter</span></a></li>
-															<li><a title="Multi Upload" href="/themes/nalika/multi-upload.html"><span class="mini-sub-pro">Multi Upload</span></a></li>
-															<li><a title="Text Editor" href="/themes/nalika/tinymc.html"><span class="mini-sub-pro">Text Editor</span></a></li>
-															<li><a title="Dual List Box" href="/themes/nalika/dual-list-box.html"><span class="mini-sub-pro">Dual List Box</span></a></li>
-													</ul>
-											</li>
-											<li>
-													<a class="has-arrow" href="/themes/nalika/mailbox.html" aria-expanded="false"><i class="icon nalika-smartphone-call icon-wrap"></i> <span class="mini-click-non">App views</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Notifications" href="/themes/nalika/notifications.html"><span class="mini-sub-pro">Notifications</span></a></li>
-															<li><a title="Alerts" href="/themes/nalika/alerts.html"><span class="mini-sub-pro">Alerts</span></a></li>
-															<li><a title="Modals" href="/themes/nalika/modals.html"><span class="mini-sub-pro">Modals</span></a></li>
-															<li><a title="Buttons" href="/themes/nalika/buttons.html"><span class="mini-sub-pro">Buttons</span></a></li>
-															<li><a title="Tabs" href="/themes/nalika/tabs.html"><span class="mini-sub-pro">Tabs</span></a></li>
-															<li><a title="Accordion" href="/themes/nalika/accordion.html"><span class="mini-sub-pro">Accordion</span></a></li>
-													</ul>
-											</li>
-											<li id="removable">
-													<a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
-													<ul class="submenu-angle" aria-expanded="false">
-															<li><a title="Login" href="/themes/nalika/login.html"><span class="mini-sub-pro">Login</span></a></li>
-															<li><a title="Register" href="/themes/nalika/register.html"><span class="mini-sub-pro">Register</span></a></li>
-															<li><a title="Lock" href="/themes/nalika/lock.html"><span class="mini-sub-pro">Lock</span></a></li>
-															<li><a title="Password Recovery" href="/themes/nalika/password-recovery.html"><span class="mini-sub-pro">Password Recovery</span></a></li>
-													</ul>
-											</li>
-									</ul>
-						</nav>
-					</div>
-		</nav>
-	</div>
-    <!-- Start Welcome area -->
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('adminproducts.index') }}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
 
-				{{ $slot }}
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
 
-    <!-- jquery
-		============================================ -->
-    <script src="/themes/nalika/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="/themes/nalika/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="/themes/nalika/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="/themes/nalika/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="/themes/nalika/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="/themes/nalika/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="/themes/nalika/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="/themes/nalika/js/jquery.scrollUp.min.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="/themes/nalika/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/themes/nalika/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="/themes/nalika/js/metisMenu/metisMenu.min.js"></script>
-    <script src="/themes/nalika/js/metisMenu/metisMenu-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="/themes/nalika/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="/themes/nalika/js/sparkline/jquery.charts-sparkline.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="/themes/nalika/js/calendar/moment.min.js"></script>
-    <script src="/themes/nalika/js/calendar/fullcalendar.min.js"></script>
-    <script src="/themes/nalika/js/calendar/fullcalendar-active.js"></script>
-	<!-- float JS
-		============================================ -->
-    <script src="/themes/nalika/js/flot/jquery.flot.js"></script>
-    <script src="/themes/nalika/js/flot/jquery.flot.resize.js"></script>
-    <script src="/themes/nalika/js/flot/curvedLines.js"></script>
-    <script src="/themes/nalika/js/flot/flot-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="/themes/nalika/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="/themes/nalika/js/main.js"></script>
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="/themes/adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="/themes/adminlte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="/themes/adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
 
-	@yield('script')
-	
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="/themes/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="/themes/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="{{ route('adminproducts.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                PRODUCT
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('adminproducts.index') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/profile.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/e-commerce.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>E-commerce</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/projects.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/project-add.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Add</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/project-edit.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Edit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/project-detail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Detail</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/contacts.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contacts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/faq.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/contact-us.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contact us</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Extras
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Login & Register v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Login v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Register v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Forgot Password v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Recover Password v1</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Login & Register v2
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/login-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Login v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/register-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Register v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/forgot-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Forgot Password v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/themes/adminlte/pages/examples/recover-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Recover Password v2</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/lockscreen.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/legacy-user-menu.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Legacy User Menu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/language-menu.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Language Menu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/404.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/500.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/pace.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pace</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/examples/blank.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/starter.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                Search
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Simple Search</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/themes/adminlte/pages/search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Enhanced</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-item">
+            <a href="/themes/adminlte/iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>Tabbed IFrame Plugin</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-circle nav-icon"></i>
+              <p>Level 1</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Level 1
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Level 2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Level 2
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Level 2</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-circle nav-icon"></i>
+              <p>Level 1</p>
+            </a>
+          </li>
+          <li class="nav-header">LABELS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Important</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Warning</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Informational</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        {{ $slot }}
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/themes/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/themes/adminlte/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="/themes/adminlte/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="/themes/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="/themes/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="/themes/adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="/themes/adminlte/plugins/moment/moment.min.js"></script>
+<script src="/themes/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/themes/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="/themes/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/themes/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/themes/adminlte/dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/themes/adminlte/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/themes/adminlte/dist/js/pages/dashboard.js"></script>
 </body>
-
 </html>
