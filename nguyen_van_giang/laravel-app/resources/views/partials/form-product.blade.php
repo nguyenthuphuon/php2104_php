@@ -30,7 +30,10 @@
         <!-- text input -->
         <div class="form-group">
           <label>Name</label>
-          <input name="name" type="text" class="form-control" value="{{ @$product->name }}">
+          <input name="name" type="text" class="form-control" value="{{ old('name', @$product->name) }}">
+          @foreach ($errors->get('name') as $message)
+            <p style="color:red;">{{ $message }}</p>
+          @endforeach
         </div>
       </div>
     </div>
