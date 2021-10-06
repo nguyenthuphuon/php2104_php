@@ -26,17 +26,17 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Women',
                 'image' => 'girl-1.png',
-                'is_public' => '2',
+                'is_public' => '1',
             ],
             [
                 'name' => 'Sports',
                 'image' => 'sport-1.png',
-                'is_public' => '3',
+                'is_public' => '1',
             ],
             [
                 'name' => 'Electronics',
                 'image' => 'electronic-1.png',
-                'is_public' => '4',
+                'is_public' => '1',
             ],
         ]);
     }
