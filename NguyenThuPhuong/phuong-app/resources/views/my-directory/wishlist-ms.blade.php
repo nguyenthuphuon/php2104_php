@@ -31,7 +31,7 @@
 							  @foreach ($products as $product)
 						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 						        
-						        <td class="image-prod"><div class="img" style="background-image:url({{ $product->image }});"></div></td>
+						        <td class="image-prod"><div class="img" style="background-image:url({{  showImg($product->image) }});"></div></td>
 						        
 						        <td class="product-name">
 						        	<h3>{{ $product->name }}</h3>

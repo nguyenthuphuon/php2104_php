@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\MyRules;
 
 class StoreProductsRequest extends FormRequest
 {
@@ -24,10 +25,11 @@ class StoreProductsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:15',
-            'price' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'image' => 'mimes:jpg,png|required|max:10000'
+            'name' => ['required', 'max:15', new MyRules],
+            'price' => ['required','numeric'],
+            'quantity' => ['required','numeric'],
+            'image' => ['mimes:jpg,png', 'required', 'max:500'],
         ];
     }
+
 }

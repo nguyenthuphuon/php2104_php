@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" href="/vegefoods/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="/vegefoods/css/animate.css">
     <link rel="stylesheet" href="/vegefoods/css/owl.carousel.min.css">
@@ -77,9 +78,15 @@
                     <li class="nav-item">
                         <a href="/contact-ms" class="nav-link">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/wishlist-ms" class="nav-link">
+                            <span class="icon-heart" id="numberLove">0</span>
+                        </a>
+                    </li>
                     <li class="nav-item cta cta-colored">
                         <a href="/cart-ms" class="nav-link">
-                            <span class="icon-shopping_cart"></span>[0] </a>
+                            <span class="icon-shopping_cart" id="numberItem">0</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -234,6 +241,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="/vegefoods/js/google-map.js"></script>
     <script src="/vegefoods/js/main.js"></script>
+    @yield('script') 
 </body>
 
 </html>

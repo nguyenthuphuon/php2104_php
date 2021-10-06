@@ -66,7 +66,7 @@
               <td>{{ $product->user_id }}</td>
               <td>{{ $product->price }}</td>
               <td>
-                <img src="{{ asset('storage/products/' . $product->image) }}" style="width: 60px; height: 60px;" />
+                <img src="{{  showImg($product->image) }}" style="width: 60px; height: 60px;" />
               </td>
               <td>{{ $product->quantity }}</td>
               <td>{{ $product->sold }}</td>
