@@ -27,7 +27,6 @@ class ProductController extends Controller
         $products = $this->modelProduct
             ->orderby('id', 'desc')
             ->paginate(config('product.paginate_admin'));
-            //dd($products);
         return view('admin.products.index', [
             'products' => $products,
         ]);
@@ -45,7 +44,6 @@ class ProductController extends Controller
             ->where('is_public', 1)
             ->pluck('name', 'id')
             ->toArray();
-        //dd($categories);
         return view('admin.products.create', [
             'categories' => $categories,
         ]);
