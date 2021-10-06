@@ -61,6 +61,7 @@
     <script src="{{url('/assets/js/sb-admin.min.js')}}"></script>
     {{--Handle modal --}}
     <script src="{{url('/assets/js/handle_modal.js')}}"></script>
+    @yield('scripts')
 </div>
 </body>
 
