@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class ResetPasswords extends Model
 {
     use HasFactory;
+    protected $guard = 'admin';
 
     protected $fillable = [
-        'name','title','image'
+        'email','password'
     ];
 
-    public function getProduct()
-    {
-        return $this->hasOne(Products::class,'id');
-    }
+    protected $hidden = [
+        'password',
+    ];
 }

@@ -4,26 +4,20 @@
 @endsection
 
 @section('content')
-@if (session('success'))
-<div class="alert alert-success hidden" role="alert">
-    <div class="d-flex align-items-center justify-content-between">
-        {{session('success')}}
-        <i class="fa fa-close btn-hidden"></i>
-    </div>
-</div>
-@endif
-@if (session('error'))
-<div class="alert alert-danger hidden" role="alert">
-    <div class="d-flex align-items-center justify-content-between">
-        {{session('error')}}
-        <i class="fa fa-close btn-hidden"></i>
-    </div>
-</div>
-@endif
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="d-flex align-items-center justify-content-between">
+                {{session('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    @endif
     <div class="card mb-3">
         <div class="card-header">
             <i class="fa fa-table"></i>
-            Categories List</div>
+            Category List</div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,6 +26,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Title</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -46,18 +41,26 @@
                                 {{$category->title}}
                             </td>
                             <td>
-                                <a href="">
+                                <div class="m-r-10">
+                                    <img src="{{asset('storage/images/banner/'.$category->image)}}"
+                                         alt="{{$category->image}}"
+                                         class="rounded" width="80">
+                                </div>
+                            </td>
+                            <td>
+                                <a href="{{route('categories.edit',['category' => $category])}}">
                                     <button class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                         Update
                                     </button>
                                 </a>
-                                <a href="">
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-remove"></i>
-                                        Delete
-                                    </button>
-                                </a>
+                                <button class="btn btn-danger confirm"
+                                        data-toggle="modal"
+                                        data-target="#modalDelete"
+                                        data-url="{{route('categories.destroy',['category' => $category])}}">
+                                    <i class="fa fa-remove"></i>
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     @endforeach
