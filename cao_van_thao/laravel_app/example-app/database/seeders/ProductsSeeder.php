@@ -36,11 +36,11 @@ class ProductsSeeder extends Seeder
                 'rate' => rand(100, 1000),
                 'start_sale_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'image'=>$faker->imageUrl($width = 250, $height = 300),
-                'nhan_vien_id'=>rand(1,5),
+                'nhan_vien_id'=>rand(1, 5),
                 'posting_time'=>$faker->date($format = 'Y-m-d', $max = 'now'),
                 'sale_off'=>rand(0, 30),
                 'price_off'=>rand(300, 500),
-                'is_public'=>rand(1, 4),
+                'is_public'=>rand(0, 1),
                 'categories_id'=> $categories->random()->id,
             ];
         }

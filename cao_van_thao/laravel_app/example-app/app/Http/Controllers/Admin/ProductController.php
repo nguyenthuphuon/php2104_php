@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -14,16 +15,19 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     protected $modelProduct;
+    protected $modelCategory;
 
-    public function __construct(Product $product)
+    public function __construct(Product $product, Category $category)
      {
          $this->modelProduct = $product;
+         $this->modelCategory = $category;
      }
     public function index()
     {
         $products = $this->modelProduct
+            ->orderby('id', 'desc')
             ->paginate(config('product.paginate_admin'));
-
+            //dd($products);
         return view('admin.products.index', [
             'products' => $products,
         ]);
@@ -37,7 +41,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = $this->modelCategory
+            ->where('is_public', 1)
+            ->pluck('name', 'id')
+            ->toArray();
+        //dd($categories);
+        return view('admin.products.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -48,7 +59,38 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //return redirect()->route('adminproducts.show', ['product' =>$id]);
+
+        $data = $request->only([
+            'categories_id',
+            'name',
+            'quantity',
+            'description',
+            'price',
+            'sale_off',
+            'image',
+            'is_public',
+            
+        ]);
+        $data['categories_id'] = (int) $data['categories_id'];
+        $data['is_public'] = isset($data['is_public']) ? (int) $data['is_public'] : 0;
+        $data['user_id'] = auth()->id();
+
+        try {
+            $product = $this->modelProduct->create($data);
+            $msg = 'Create product success.';
+
+            return redirect()
+                ->route('adminproducts.show', ['product' => $product->id])
+                ->with('msg', $msg);
+        } catch (\Exception $e) {
+            \Log::error($e);
+        }
+
+        $error = 'Something went wrong.';
+
+        return redirect()
+            ->route('adminproducts.index')
+            ->with('error', $error);
     }
 
     /**
@@ -72,7 +114,17 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = $this->modelProduct->findOrFail($id);
+
+        $categories = $this->modelCategory
+            ->where('is_public', 1)
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return view('admin.products.edit', [
+            'categories' => $categories,
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -84,7 +136,39 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = $this->modelProduct->findOrFail($id);
+
+        $data = $request->only([
+            'categories_id',
+            'name',
+            'quantity',
+            'description',
+            'price',
+            'sale_off',
+            'image',
+            'is_public',
+        ]);
+
+        $data['categories_id'] = (int) $data['categories_id'];
+        $data['is_public'] = isset($data['is_public']) ? (int) $data['is_public'] : 0;
+        $data['user_id'] = auth()->id();
+
+        try {
+            $product->update($data);
+            $msg = 'Update product success.';
+
+            return redirect()
+                ->route('adminproducts.show', ['product' => $product->id])
+                ->with('msg', $msg);
+        } catch (\Exception $e) {
+            \Log::error($e);
+        }
+
+        $error = 'Something went wrong.';
+
+        return redirect()
+            ->route('adminproducts.index')
+            ->with('error', $error);
     }
 
     /**
