@@ -22,6 +22,7 @@ class CreateUpdateProductsToAddTable extends Migration
             $table->float('price_off')->nullable();
             $table->integer('is_public')->nullable();
             $table->bigInteger('categories_id')->references('id')->on('categories');
+            $table->string('image_name')->nullable();
         });
     }
 
