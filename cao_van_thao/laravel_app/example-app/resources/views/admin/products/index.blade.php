@@ -42,7 +42,7 @@
 					<td>{{ $product->quantity }}</td>
 					<td>{{ $product->description }}</td>
 					<td>{{ $product->price }}.000</td>
-					<td><img width="100px" height="100px" src="{{ $product->image }}" alt="" /></td>
+					<td><img width="100px" height="100px" src="{{ showImageProduct($product->image) }}" alt="{{ $product->image }}" /></td>
 					<td>{{ $product->categories_id }}</td>
 					<td>
 						<a href="{{ route('products.product-detail', ['id' => $product->id]) }}" target="_blank">demo</a>

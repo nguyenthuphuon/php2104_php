@@ -42,6 +42,7 @@ class ProductsSeeder extends Seeder
                 'price_off'=>rand(300, 500),
                 'is_public'=>rand(0, 1),
                 'categories_id'=> $categories->random()->id,
+                'image_name'=> $faker->name,
             ];
         }
        Product::insert($data);

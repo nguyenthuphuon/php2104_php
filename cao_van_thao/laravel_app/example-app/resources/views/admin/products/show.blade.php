@@ -16,14 +16,14 @@
 					<div class="col-12 col-sm-6">
 						<h3 class="d-inline-block d-sm-none">{{ $product->name }}</h3>
 						<div class="col-12">
-							<img src="{{ $product->image }}" class="product-image" alt="Product Image">
+							<img src="{{ showImageProduct($product->image) }}" class="product-image" alt="{{ $product->name }}">
 						</div>
 							<div class="col-12 product-image-thumbs">
-									<div class="product-image-thumb active"><img src="{{ $product->image }}" alt="Product Image"></div>
-									<div class="product-image-thumb"><img src="{{ $product->image }}" alt="Product Image"></div>
-									<div class="product-image-thumb"><img src="{{ $product->image }}" alt="Product Image"></div>
-									<div class="product-image-thumb"><img src="{{ $product->image }}" alt="Product Image"></div>
-									<div class="product-image-thumb"><img src="{{ $product->image }}" alt="Product Image"></div>
+									<div class="product-image-thumb active"><img src="{{ showImageProduct($product->image) }}" alt="{{ $product->name }}"></div>
+									<div class="product-image-thumb"><img src="{{ showImageProduct($product->image) }}" alt="{{ $product->name }}"></div>
+									<div class="product-image-thumb"><img src="{{ showImageProduct($product->image) }}" alt="{{ $product->name }}"></div>
+									<div class="product-image-thumb"><img src="{{ showImageProduct($product->image) }}" alt="{{ $product->name }}"></div>
+									<div class="product-image-thumb"><img src="{{ showImageProduct($product->image) }}" alt="{{ $product->name }}"></div>
 							</div>
 					</div>
 						<div class="col-12 col-sm-6">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller
 {
@@ -55,7 +56,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
 
         $data = $request->only([
@@ -69,11 +70,20 @@ class ProductController extends Controller
             'is_public',
             
         ]);
+        
+        $file = $request->file('image');
+
         $data['categories_id'] = (int) $data['categories_id'];
         $data['is_public'] = isset($data['is_public']) ? (int) $data['is_public'] : 0;
         $data['user_id'] = auth()->id();
 
         try {
+            if ($file) {
+                $file->store('public/products');
+                $data['image_name'] = $file->getClientOriginalName();
+                $data['image'] = $file->hashName();
+            }
+
             $product = $this->modelProduct->create($data);
             $msg = 'Create product success.';
 
@@ -132,7 +142,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
         $product = $this->modelProduct->findOrFail($id);
 
@@ -147,11 +157,20 @@ class ProductController extends Controller
             'is_public',
         ]);
 
+        $file = $request->file('image');
+
         $data['categories_id'] = (int) $data['categories_id'];
         $data['is_public'] = isset($data['is_public']) ? (int) $data['is_public'] : 0;
         $data['user_id'] = auth()->id();
 
         try {
+
+            if ($file) {
+                $file->store('public/products');
+                $file->getClientOriginalName();
+                $data['image_name'] = $file->getClientOriginalName();
+                $data['image'] = $file->hashName();  
+            }
             $product->update($data);
             $msg = 'Update product success.';
 
