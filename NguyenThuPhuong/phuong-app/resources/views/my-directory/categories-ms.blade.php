@@ -65,7 +65,7 @@
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
     					<a href="{{ route('product-single-ms', ['id' => $product->id]) }}" class="img-prod">
-							<img class="img-fluid" src="{{  showImg($product->image) }}" alt="Colorlib Template">
+							<img class="img-fluid" src="{{ showImg($product->image) }}" alt="{{ $product->name }}">
 							@if($product->sale_off > 0)
                             <span class="status">{{ $product->sale_off }}%</span>
                             @endif
@@ -126,31 +126,6 @@
       </div>
     </section>
 
-@section('script')
-  <script type="text/javascript">
-    $('.add-to-cart').click(function(e){
-        e.preventDefault();
-        var currentQuantity = parseInt( $('#numberItem').text());
-        var addQuantity = parseInt($('#quantity').val());
-        var newQuantity = currentQuantity + 1;
-        $('#numberItem').text(newQuantity);
-
-		Swal.fire(
-            'Add to cart successfully !' 
-        )
-    });
-
-    $('.add-to-heart').click(function(e){
-        e.preventDefault();
-        var currentQuantity = parseInt( $('#numberLove').text());
-        var newQuantity = currentQuantity + 1;
-        $('#numberLove').text(newQuantity);
-
-		Swal.fire(
-            'Add to favorites successfully !' 
-        )
-    });
-  </script>
-@endsection
+@include('partials.add-product');
 
 </x-my-shop>

@@ -21,6 +21,7 @@
         "tailwindcss": "^2.0.2"
     },
     "dependencies": {
+        "pnotify": "^5.2.0",
         "sweetalert2": "^11.1.7"
     }
 }
