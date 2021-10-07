@@ -36,7 +36,8 @@
 
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="{{ route('product-single-ms', ['id' => $product->id]) }}" class="img-prod"><img class="img-fluid" src="{{ $product->image }}" alt="Colorlib Template">
+    					<a href="{{ route('product-single-ms', ['id' => $product->id]) }}" class="img-prod">
+							<img class="img-fluid" src="{{ showImg($product->image) }}" alt="{{ $product->name }}">
 							@if($product->sale_off > 0)
                             <span class="status">{{ $product->sale_off }}%</span>
                             @endif
@@ -55,12 +56,16 @@
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
+									<span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+										</svg>
+									</span>
 	    							</a>
 	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<span><i class="ion-ios-cart"></i></span>
 	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
+	    							<a href="#" class="heart d-flex justify-content-center align-items-center add-to-heart">
 	    								<span><i class="ion-ios-heart"></i></span>
 	    							</a>
     							</div>
@@ -92,4 +97,7 @@
         </div>
       </div>
     </section>
+
+@include('partials.add-product');
+
 </x-my-shop>
