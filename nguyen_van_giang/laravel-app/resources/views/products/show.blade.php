@@ -50,7 +50,7 @@
                      <i class="ion-ios-remove"></i>
                     </button>
                   </span>
-                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                <input type="text" id="quantity" name="quantity" class="form-control input-number product-quantity" value="1" min="1" max="100">
                 <span class="input-group-btn ml-2">
                     <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                        <i class="ion-ios-add"></i>
@@ -62,7 +62,7 @@
                 <p style="color: #000;">600 kg available</p>
               </div>
             </div>
-            <p><a href="cart.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>
+            <p><a href="#" class="btn btn-black py-3 px-5 add-to-cart-detalt" data-product_id="{{ $product->id }}">Add to Cart</a></p>
           </div>
         </div>
       </div>
@@ -215,5 +215,88 @@
         </div>
       </div>
     </section>
+
+  @section('script')
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
+        Object.size = function(obj) {
+          var size = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+          }
+          return size;
+        };
+
+        $('.add-to-cart-detalt').click(function(e) {
+          e.preventDefault();
+
+          var product_id = $(this).data('product_id');
+          var quantity = $('.product-quantity').val();
+
+          var url = "{{ route('order.save') }}";
+
+          $.ajax(url, {
+            type: 'POST',
+            data: {
+              product_id: product_id,
+              quantity: quantity,
+            },
+            success: function (data) {
+              console.log('success');
+
+              var objData = JSON.parse(data);
+              var newQuantity = Object.size(objData.cart);
+
+              $('.cart-quantity').text(newQuantity);
+
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add to cart success!',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            },
+            error: function () {
+              console.log('fail');
+
+              Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Failed!',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+        });
+
+        $('.buy-now').click(function(e) {
+          e.preventDefault();
+
+          var currentQuantity = parseInt($('.cart-quantity').text());
+          var addMoreQuantity = 1;
+          var newQuantity = currentQuantity + addMoreQuantity;
+
+          $('.cart-quantity').text(newQuantity);
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Add to cart success!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        });
+      });
+    </script>
+  @endsection
 
 </x-my-app-layout>
