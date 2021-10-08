@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\ProductName;
+use App\Rules\ProductTitle;
 
 class StoreProductRequest extends FormRequest
 {
@@ -25,7 +26,19 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', new ProductName],
+            'name' => ['required', 'regex:/^[a-zA-Z0-9\s]+$/i'],
+            'title' => 'required',
+            'image' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'The :attribute cannot be blank.',
+            'name.regex' => 'The :attribute cannot contain special characters.',
+            'title.required' => 'The :attribute cannot be blank.',
+            'image.required' => 'The :attribute cannot be blank.',
         ];
     }
 }

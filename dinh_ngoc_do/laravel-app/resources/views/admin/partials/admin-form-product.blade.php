@@ -38,6 +38,9 @@
           <div class="form-group">
             <label>Title</label>
             <input name="title" type="text" class="form-control" value="{{ @$product->title }}" placeholder="Enter product title...">
+            @foreach ($errors->get('title') as $message)
+            <p style="color:red;">{{ $message }}</p>
+            @endforeach
           </div>
         </div>
       </div>
@@ -58,6 +61,9 @@
                 </label>
               </div>
             </div>
+            @foreach ($errors->get('image') as $message)
+            <p style="color:red;">{{ $message }}</p>
+            @endforeach
           </div>
         </div>
       </div>

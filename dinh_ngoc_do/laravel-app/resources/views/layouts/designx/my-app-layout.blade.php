@@ -37,7 +37,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="/themes/shopper_fashion/index.html" class="js-logo-clone">Shoppers</a>
+                <a href="{{ route('shopper.home') }}" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -47,9 +47,9 @@
                   <li><a href="#"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="/themes/shopper_fashion/cart.html" class="site-cart">
+                    <a href="{{ route('shopper.cart') }}" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count">0</span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -64,7 +64,7 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children active">
-              <a href="/themes/shopper_fashion/index.html">Home</a>
+              <a href="{{ route('shopper.home') }}">Home</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -80,7 +80,7 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="/themes/shopper_fashion/about.html">About</a>
+              <a href="{{ route('shopper.about') }}">About</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -88,7 +88,7 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="/themes/shopper_fashion/shop.html">Shop</a>
+              <a href="{{ route('shopper.shop') }}">Shop</a>
               <ul class="dropdown">
                 <li><a href="#">Hoodies & Jackets</a></li>
                 <li><a href="#">Suits</a></li>
@@ -109,7 +109,7 @@
               </ul>
             </li>
             <li><a href="#">New Arrivals</a></li>
-            <li><a href="/themes/shopper_fashion/contact.html">Contact</a></li>
+            <li><a href="{{ route('shopper.contact') }}">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -201,6 +201,7 @@
   <script src="/themes/shopper_fashion/js/aos.js"></script>
 
   <script src="/themes/shopper_fashion/js/main.js"></script>
-    
+
+  @yield('script')
   </body>
 </html>
