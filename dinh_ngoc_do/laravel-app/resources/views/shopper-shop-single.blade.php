@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img src="/themes/shopper_fashion/images/{{ $product->image }}" alt="Image" class="img-fluid">
+            <img src="{{ showProductImage($product->image) }}" alt="{{ $product->name }}" class="img-fluid">
           </div>
           <div class="col-md-6">
             <h2 class="text-black">{{ $product->name }}</h2>
@@ -40,14 +40,17 @@
               <div class="input-group-prepend">
                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
               </div>
-              <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+              <input id="quantity" type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
               <div class="input-group-append">
                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
               </div>
             </div>
 
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+            <p>
+              <a href="" class="buy-now btn btn-sm btn-primary add-to-card">Add To Cart</a>
+              <!-- <button type="button" class="btn btn-success toastrDefaultSuccess" style=""></button> -->
+            </p>
 
           </div>
         </div>
@@ -68,7 +71,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="/themes/shopper_fashion/images/{{ $product->image }}" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ showProductImage($product->image) }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">{{ $product->name }}</a></h3>
@@ -143,4 +146,21 @@
         </div>
       </div>
     </div>
+
+    @section('script')
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.add-to-card').click(function(e) {
+          e.preventDefault();
+
+          var currentQuantity = parseInt($('.count').text());
+          var addMoreQuantity = parseInt($('#quantity').val());
+          var newQuantity = currentQuantity + addMoreQuantity;
+
+          $('.count').text(newQuantity);
+        });
+      });
+    </script>
+    @endsection
+
 </x-my-app-layout>
