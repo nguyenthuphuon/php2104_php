@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
@@ -59,6 +60,7 @@ Route::get('/home-page', [HomeController::class, 'index'])->name('home-page');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/categories/{id}', [CategoryController::class, 'index'])->name('category.show');
+Route::post('add-to-cart', [OrderController::class, 'saveDataToSession'])->name('order.save');
 
 Route::get('/child-page', function() {
     return view('my-directory.child-page');

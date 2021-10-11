@@ -11,3 +11,18 @@ if (!function_exists('showProductImage')) {
         return asset('storage/products/' . $image);
     }
 }
+
+if (!function_exists('showCartQuantity')) {
+    function showCartQuantity()
+    {
+        $sessionData = session('cart');
+        $quantity = 0;
+
+        if ($sessionData) {
+            $quantity = count($sessionData);
+        }
+
+        return $quantity;
+    }
+}
+
