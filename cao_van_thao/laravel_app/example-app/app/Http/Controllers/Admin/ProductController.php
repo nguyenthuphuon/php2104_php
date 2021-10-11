@@ -31,7 +31,7 @@ class ProductController extends Controller
         return view('admin.products.index', [
             'products' => $products,
         ]);
-        //dd('ok');
+
     }
 
     /**
