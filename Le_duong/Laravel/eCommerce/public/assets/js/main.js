@@ -313,6 +313,45 @@
     });
   }
   $(".btn-delete-cart").on("click", deleteToCart);
+
+  /*==================================================================
+    [Purchase Product ]*/
+  function purchaseProduct(e) {
+    e.preventDefault();
+    let url = $(this).data("url");
+    let userName = $(".user_name").val();
+    let userEmail = $(".user_email").val();
+    let userPhone = $(".user_phone").val();
+    let userAddress = $(".user_address").val();
+    let userNotice = $(".user_notice").val();
+    let userSelectTime = $(".user_select").val();
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+    });
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: "post",
+      data: {
+        userName: userName,
+        userEmail: userEmail,
+        userPhone: userPhone,
+        userAddress: userAddress,
+        userNotice: userNotice,
+        userSelectTime: userSelectTime,
+      },
+      success: function (res) {
+        if (res) {
+          swal("success", "Successful purchase!", "success");
+        }
+      },
+    });
+  }
+
+  $(".purchase-product").on("click", purchaseProduct);
+
   /*==================================================================
     [ +/- num product ]*/
   $(".btn-num-product-down").on("click", function () {
