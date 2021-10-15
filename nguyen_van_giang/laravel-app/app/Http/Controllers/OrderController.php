@@ -35,16 +35,25 @@ class OrderController extends Controller
 
             if (!$existFlg) {
                 $data['cart'][] = [
-                    'id' => $request->product_id,
-                    'quantity' => $request->quantity
+                    'id' => $productId,
+                    'quantity' => $quantity
                 ];
             }
         } else {
             $data = [
                 'cart' => [
                     [
-                        'id' => $request->product_id,
-                        'quantity' => $request->quantity
+                        'id' => $productId,
+                        'quantity' => $quantity
+                    ],
+                ],
+            ];
+
+            $data = [
+                'cart' => [
+                    [
+                        'id' => $productId,
+                        'quantity' => $quantity
                     ],
                 ],
             ];
@@ -53,5 +62,58 @@ class OrderController extends Controller
         session($data);
 
         return json_encode($data);
+    }
+
+    public function removeDataFromSession(Request $request)
+    {
+        $productId = (int) $request->product_id;
+        $cartData = session('cart');
+
+        foreach ($cartData as $key => $productData) {
+            if ($productData['id'] == $productId) {
+                unset($cartData[$key]);
+            }
+        }
+
+        if (is_null($cartData)) {
+            session()->forget('cart');
+
+            return json_encode([]);
+        }
+
+        $request->session()->forget('cart');
+        session(['cart' => $cartData]);
+
+        return json_encode(['cart' => $cartData]);
+    }
+
+    public function orderList()
+    {
+        $cartData = session('cart');
+        $cartData = collect($cartData);
+
+        $productData = $cartData->pluck('quantity', 'id')->toArray();
+        $productIds = $cartData->pluck('id');
+
+        $products = $this->productModel->whereIn('id', $productIds)->get();
+
+        $subtotal = 0;
+        $delivery = 0;
+        $discount = 0;
+
+        foreach ($products as $product) {
+            $subtotal += $product->price * $productData[$product->id] * ((100 - $product->sale_off) / 100);
+        }
+
+        $total = $subtotal + $delivery - $discount;
+
+        return view('orders.order-list', [
+            'products' => $products,
+            'productData' => $productData,
+            'subtotal' => $subtotal,
+            'delivery' => $delivery,
+            'discount' => $discount,
+            'total' => $total,
+        ]);
     }
 }

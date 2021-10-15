@@ -53,7 +53,7 @@
           <a href="/themes/vegefoods/contact.html" class="nav-link">Contact</a>
         </li>
         <li class="nav-item cta cta-colored">
-          <a href="/themes/vegefoods/cart.html" class="nav-link">
+          <a href="{{ route('order.list') }}" class="nav-link">
             <span class="icon-shopping_cart"></span>[<span class="cart-quantity">{{ showCartQuantity() }}</span>]</a>
         </li>
       </ul>
