@@ -8,9 +8,6 @@
             <div class="col-md-12 ftco-animate text-center">
               <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
               <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-              <p>
-                <a href="#" class="btn btn-primary">View Details</a>
-              </p>
             </div>
           </div>
         </div>
@@ -22,9 +19,6 @@
             <div class="col-sm-12 ftco-animate text-center">
               <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
               <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-              <p>
-                <a href="#" class="btn btn-primary">View Details</a>
-              </p>
             </div>
           </div>
         </div>
@@ -104,7 +98,7 @@
                 $categoryJuice = $categories->where('name', 'Juices')->first(); 
                 $categoryDried = $categories->where('name', 'Dried')->first(); 
                 @endphp 
-              <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(/vegefoods/images/{{ $categoryFruit->image }});">
+              <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(/vegefoods/images/{{ $categoryFruit->image }}); ">
                 <div class="text px-3 py-1">
                   <h2 class="mb-0">
                     <a href="{{ route('category.show', ['id' => $categoryFruit->id]) }}">
@@ -159,7 +153,9 @@
       </div>
     </div>
     <div class="container">
-      <div class="row"> @foreach ($products as $product) <div class="col-md-6 col-lg-3 ftco-animate">
+      <div class="row"> 
+        @foreach ($products as $product) 
+        <div class="col-md-6 col-lg-3 ftco-animate">
           <div class="product">
             <a href="{{ route('product-single-ms', ['id' => $product->id]) }}" class="img-prod">
               <img class="img-fluid" src="{{ showImg($product->image) }}" alt="{{ $product->name }}">
@@ -180,8 +176,7 @@
               </div>
               <div class="bottom-area d-flex px-3">
                 <div class="m-auto d-flex">
-                  <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                    <span>
+                  <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center" data-product_id="{{ $product->id }}">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
@@ -193,7 +188,7 @@
                       <i class="ion-ios-cart"></i>
                     </span>
                   </a>
-                  <a href="#" class="heart d-flex justify-content-center align-items-center add-to-heart ">
+                  <a href="#" class="heart d-flex justify-content-center align-items-center add-to-love ">
                     <span>
                       <i class="ion-ios-heart"></i>
                     </span>
@@ -202,7 +197,8 @@
               </div>
             </div>
           </div>
-        </div> @endforeach 
+        </div> 
+        @endforeach 
         <div class="col-sm-12 ftco-animate text-center">
           <p>
             <a href="/shop-ms" class="btn btn-primary">See More</a>
@@ -321,37 +317,7 @@
     </div>
   </section>
   <hr>
-  <section class="ftco-section ftco-partner">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm ftco-animate">
-          <a href="#" class="partner">
-            <img src="vegefoods/images/partner-1.png" class="img-fluid" alt="Colorlib Template">
-          </a>
-        </div>
-        <div class="col-sm ftco-animate">
-          <a href="#" class="partner">
-            <img src="vegefoods/images/partner-2.png" class="img-fluid" alt="Colorlib Template">
-          </a>
-        </div>
-        <div class="col-sm ftco-animate">
-          <a href="#" class="partner">
-            <img src="vegefoods/images/partner-3.png" class="img-fluid" alt="Colorlib Template">
-          </a>
-        </div>
-        <div class="col-sm ftco-animate">
-          <a href="#" class="partner">
-            <img src="vegefoods/images/partner-4.png" class="img-fluid" alt="Colorlib Template">
-          </a>
-        </div>
-        <div class="col-sm ftco-animate">
-          <a href="#" class="partner">
-            <img src="vegefoods/images/partner-5.png" class="img-fluid" alt="Colorlib Template">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
     <div class="container py-4">
       <div class="row d-flex justify-content-center py-5">

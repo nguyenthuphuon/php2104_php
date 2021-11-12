@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -22,6 +24,10 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 Route::get('/', function () {
     return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register')->name('auth.register');
 });
 
 Route::get('/dashboard', function () {
@@ -120,10 +126,31 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin'])->group(fun
     Route::get('/delete', function () {
         return 'Delete product';
     });
+
+    //order
+    Route::get('/orders',[AdminOrdersController::class, 'index'])->name('orders.index');
 });
+
+//add to cart
+Route::post('/add-to-cart',[OrderController::class, 'saveDataToSession'])->name('order.save');
+
+//order list
+Route::get('/cart-ms',[OrderController::class, 'orderList'])->name('cart-ms');
+
+// remove product
+Route::post('remove-product', [OrderController::class, 'removeDataFromSession'])->name('order.remove');
+Route::put('order-update', [OrderController::class, 'update'])->name('order.update');
+Route::get('checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+Route::post('purchase', [OrderController::class, 'purchase'])->name('order.purchase');
 
 //
 Route::get('/home-page', [HomeController::class, 'index'])->name('home-page'); 
+//add to love
+Route::post('/add-to-love',[HomeController::class, 'saveDataToSession'])->name('love.save');
+//remove product love
+Route::post('remove-product-love', [HomeController::class, 'removeDataFromSession'])->name('love.remove');
+//show love list
+Route::get('/wishlist-ms', [HomeController::class, 'loveList'])->name('wishlist-ms');
 
 Route::get('/about-ms', function() {
     return view('my-directory.about-ms');
@@ -134,12 +161,7 @@ Route::get('/about-ms', function() {
  Route::get('/blog-single-ms', function() {
     return view('my-directory.blog-single-ms');
  });
- Route::get('/cart-ms', function() {
-    return view('my-directory.cart-ms');
- });
- Route::get('/checkout-ms', function() {
-    return view('my-directory.checkout-ms');
- });
+ 
  Route::get('/contact-ms', function() {
     return view('my-directory.contact-ms');
  });
@@ -147,6 +169,7 @@ Route::get('/about-ms', function() {
  
  Route::get('/shop-ms',[ProductController::class, 'shop'])->name('shop-ms');
 
- Route::get('/wishlist-ms', [ProductController::class, 'wishlist'])->name('wishlist-ms');
-
  Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+ 
+ 

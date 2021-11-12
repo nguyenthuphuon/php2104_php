@@ -78,7 +78,7 @@ class ProductController extends Controller
             'name',
             'image',
             'description',
-            'price',
+            'price',    
             'quantity',
             'sale_off',
             'is_public',
@@ -207,7 +207,7 @@ class ProductController extends Controller
                 ->withError('Edit product failed. Please try again later!');
 
         } 
-    }
+    }   
 
     /**
      * Remove the specified resource from storage.

@@ -20,10 +20,8 @@
 						      <tr class="text-center">
 						        <th>&nbsp;</th>
 						        <th>Product List</th>
-						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>	
 						        <th>Price</th>
-						        <th>Quantity</th>
-						        <th>Total</th>
 						      </tr>
 						    </thead>
 						    <tbody>
@@ -35,18 +33,13 @@
 						        
 						        <td class="product-name">
 						        	<h3>{{ $product->name }}</h3>
-						        	<p>{{ $product->description }}</p>
+						        	<p>{{ Str::limit($product->description, 50) }}</p>
 						        </td>
 						        
 						        <td class="price">${{ $product->price }}</td>
 						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
 					          </td>
 						        
-						        <td class="total">${{ $product->price }}</td>
 						      </tr><!-- END TR-->
 							  @endforeach
 

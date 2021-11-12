@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light"  style="margin:30px 0;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/vegefoods/images/about.jpg);">
@@ -26,33 +26,16 @@
 	            </div>
 	          </div>
 	          <div class="pb-md-5">
-	          	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-							<p><a href="#" class="btn btn-primary">Shop now</a></p>
+              <p>
+                Hello, my name is Phuong and I am the owner of this e-commerce site. Vegefoods is an e-commerce site created for the purpose of providing vegetables, tubers and fruits with 3 criteria: fresh, clean and safe. Our products are completely imported from farms and have a certificate of inspection by the Ministry of Health.
+                Thank you very much for visiting our website, hope you had a pleasant experience. Have a good day !
+              </p>
+							<p><a href="/shop-ms" class="btn btn-primary">Shop now</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-
-		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-      <div class="container py-4">
-        <div class="row d-flex justify-content-center py-5">
-          <div class="col-md-6">
-          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-          	<span>Get e-mail updates about our latest shops and special offers</span>
-          </div>
-          <div class="col-md-6 d-flex align-items-center">
-            <form action="#" class="subscribe-form">
-              <div class="form-group d-flex">
-                <input type="text" class="form-control" placeholder="Enter email address">
-                <input type="submit" value="Subscribe" class="submit px-3">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
 		
 		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(/vegefoods/images/bg_3.jpg);">
     	<div class="container">

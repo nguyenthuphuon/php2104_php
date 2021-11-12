@@ -36,29 +36,16 @@
                     <p class="price"><span>${{ $product->price }}</span></p>
                     <p>{{ $product->description }}</p>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="form-group d-flex">
-                                <div class="select-wrap">
-                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <select name="" id="" class="form-control">
-	                  	<option value="">Small</option>
-	                    <option value="">Medium</option>
-	                    <option value="">Large</option>
-	                    <option value="">Extra Large</option>
-	                  </select>
-                                </div>
-                            </div>
-                        </div>
                         <div class="w-100"></div>
                         <div class="input-group col-md-6 d-flex mb-3">
                             <span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
+	                	<button type="button" class="quantity-left-minus btn" >
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                            <input type="text" name="quantity" class="form-control product-quantity" value="1" min="1" max="100">
                             <span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+	                	<button type="button" class="quantity-right-plus btn ">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
 	             	</span>
@@ -68,7 +55,7 @@
                             <p style="color: #000;">600 kg available</p>
                         </div>
                     </div>
-                    <p><a href="/cart-ms" class="btn btn-black py-3 px-5 add-to-cart">Add to Cart</a></p>
+                    <p><a href="/cart-ms" class="btn btn-black py-3 px-5 add-to-cart-detalt" data-product_id="{{ $product->id }}">Add to Cart</a></p>
                 </div>
             </div>
         </div>
@@ -160,6 +147,34 @@
         </div>
     </section>
 
-@include('partials.add-product');
+@include('partials.add-product')
+
+@section('change-quantity')
+<script type="text/javascript">
+$(document).ready(function(){
+// down quantity
+  $('.quantity-left-minus').click(function(){
+
+    var quantity = parseInt($('.product-quantity').val());
+    var newQuantity = quantity - 1;
+
+    if(newQuantity == 0){
+        $('.product-quantity').val(1);   
+    }
+    else{
+        $('.product-quantity').val(newQuantity); 
+    }
+  });
+//up quantity
+  $('.quantity-right-plus').click(function(){
+      
+    var quantity = parseInt($('.product-quantity').val());
+    var newQuantity = quantity + 1;
+
+    $('.product-quantity').val(newQuantity); 
+  });
+});
+</script>
+@endsection
 
 </x-my-shop>
